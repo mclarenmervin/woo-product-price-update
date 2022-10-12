@@ -34,7 +34,7 @@ function discount_on_role_no_woocommerce() {
 */
 if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 
-	require DISCOUNT_ON_ROLE_PATH . 'includes/class-discount-on-role.php';
+	require DISCOUNT_ON_ROLE_PATH . 'class-discount-on-role.php';
 	new Discount_On_Role();
 
 } else {
