@@ -8,21 +8,21 @@ class Discount_On_Role {
 
     public function __construct() {
         add_action( 'admin_enqueue_scripts', array( $this, 'discount_on_role_enqueue_admin_script' ) );
-        add_action( 'show_user_profile', array( $this, 'extra_user_profile_fields', 10, 1 ) );
-        add_action( 'edit_user_profile', array( $this, 'extra_user_profile_fields', 10, 1 ) );
+        add_action( 'show_user_profile', array( $this, 'extra_user_profile_fields' ), 10, 1 );
+        add_action( 'edit_user_profile', array( $this, 'extra_user_profile_fields'), 10, 1 );
         add_action( 'personal_options_update', array( $this, 'save_extra_user_profile_fields' ) );
         add_action( 'edit_user_profile_update', array( $this, 'save_extra_user_profile_fields' ) );
 
         // Generating dynamically the product "regular price"
-        add_filter( 'woocommerce_product_get_regular_price', array( $this, 'custom_dynamic_regular_price', 10, 2 ) );
-        add_filter( 'woocommerce_product_variation_get_regular_price', array( $this, 'custom_dynamic_regular_price', 10, 2 ) );
+        add_filter( 'woocommerce_product_get_regular_price', array( $this, 'custom_dynamic_regular_price' ), 10, 2 );
+        add_filter( 'woocommerce_product_variation_get_regular_price', array( $this, 'custom_dynamic_regular_price' ), 10, 2 );
 
         // Generating dynamically the product "sale price"
-        add_filter( 'woocommerce_product_get_sale_price', array( $this, 'custom_dynamic_sale_price', 10, 2 ) );
-        add_filter( 'woocommerce_product_variation_get_sale_price', array( $this, 'custom_dynamic_sale_price', 10, 2 ) );
+        add_filter( 'woocommerce_product_get_sale_price', array( $this, 'custom_dynamic_sale_price' ), 10, 2 );
+        add_filter( 'woocommerce_product_variation_get_sale_price', array( $this, 'custom_dynamic_sale_price' ), 10, 2 );
 
         // Displayed formatted regular price + sale price
-        add_filter( 'woocommerce_get_price_html', array( $this, 'custom_dynamic_sale_price_html', 20, 2 ) );
+        add_filter( 'woocommerce_get_price_html', array( $this, 'custom_dynamic_sale_price_html' ), 20, 2 );
         $this->discount_update_custom_roles();
     }
 
