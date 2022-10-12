@@ -27,8 +27,8 @@ class Discount_On_Role {
     }
 
     public function discount_on_role_enqueue_admin_script() {
-        wp_enqueue_script( 'discount_on_role_script', plugin_dir_url( __FILE__ ) . 'assets/js/discount_on_role.js', array(), '1.0' );
-        wp_enqueue_style( 'discount_on_role_style', plugin_dir_url( __FILE__ ) . 'assets/css/discount_on_role.css', array(), '1.0' );
+        wp_enqueue_script( 'discount_on_role_script', plugin_dir_url( __FILE__ ) . 'discount_on_role.js', array(), '1.0' );
+        wp_enqueue_style( 'discount_on_role_style', plugin_dir_url( __FILE__ ) . 'discount_on_role.css', array(), '1.0' );
     }
 
     public function discount_update_custom_roles() {
